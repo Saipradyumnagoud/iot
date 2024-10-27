@@ -1,5 +1,0 @@
-The with open('filename.txt', 'r') statement opens the file in read mode. Replace 'filename.txt' with the path to the actual file you want to read.
-The enumerate() function helps in keeping track of the line numbers.
-Each line is split into words using line.split(), which splits the line by whitespace.
-len(words) counts the number of words in the line.
-It prints the line number and the word count for that line.
