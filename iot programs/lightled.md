@@ -33,6 +33,7 @@ try:
         time.sleep(1)  # Wait for 1 second
         
         # Turn the LED off
+        
         GPIO.output(led_pin, GPIO.LOW)
         print("LED is OFF")
         time.sleep(1)  # Wait for 1 second
