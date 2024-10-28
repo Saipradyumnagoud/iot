@@ -1,25 +1,19 @@
 import RPi.GPIO as GPIO
-import time
-
-GPIO.setmode(GPIO.BCM)
-
-PIR_PIN = 17  
-GPIO.setup(PIR_PIN, GPIO.IN)
-
-print("PIR Sensor Test (CTRL+C to exit)")
-
-time.sleep(2)  
-
+import time 
+led_pin=16
+pir_pin=18
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(led_pin,GPIO.OUT)
+GPIO.setup(pir_pin,GPIO.IN)
+GPIO.output(led_pin,GPIO.LOW)
 try:
     while True:
-        if GPIO.input(PIR_PIN):
-            print("Motion Detected!")
+        if GPIO.input(pir_pin):
+            print('motion detected')
+            GPIO.output(led_pin,GPIO.HIGH)
         else:
-            print("No motion")
-        time.sleep(1)
-
-except KeyboardInterrupt:
-    print("Program stopped by user")
-
-finally:
-    GPIO.cleanup()  
+            print('not detected')
+            GPIO.output(led_pin,GPIO.LOW)
+        time.sleep(0.1)
+except keyboardInterrupt:
+    GPIO.cleanup()
